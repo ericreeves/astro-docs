@@ -19,20 +19,20 @@ module.exports = {
         autoCollapseCategories: true,
       },
     },
-    algolia: {
-      apiKey: '99354995bfad26ed950bdb701bc56b6b',
-      indexName: 'published-docs',
-      // Optional: see doc section below
-      contextualSearch: true,
+    // algolia: {
+    //   // apiKey: '99354995bfad26ed950bdb701bc56b6b',
+    //   indexName: 'published-docs',
+    //   // Optional: see doc section below
+    //   contextualSearch: true,
 
-      // Optional: see doc section below
-      appId: 'TTRQ0VJY4D',
-      inputSelector: '.DocSearch',      // Optional: Algolia search parameters
-      searchParameters: {
-      },
+    //   // Optional: see doc section below
+    //   // appId: 'TTRQ0VJY4D',
+    //   inputSelector: '.DocSearch',      // Optional: Algolia search parameters
+    //   searchParameters: {
+    //   },
 
-      //... other Algolia params
-    },
+    //   //... other Algolia params
+    // },
     colorMode: {
       disableSwitch: false,
     },
@@ -76,6 +76,13 @@ module.exports = {
         {
           to: '/learn/',
           label: 'Learn',
+          position: 'left',
+          activeClassName: 'navbar__link--active',
+        },
+
+        {
+          to: '/registry/',
+          label: 'Registry',
           position: 'left',
           activeClassName: 'navbar__link--active',
         },
@@ -236,6 +243,26 @@ module.exports = {
         editCurrentVersion: true,
         sidebarPath: require.resolve('./sidebarsLearn.js'),
         path: 'learn',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'registry',
+        routeBasePath: 'registry',
+        editUrl: ({ docPath }) =>
+          `https://github.com/astronomer/docs/blob/main/registry/${docPath}`,
+        editCurrentVersion: true,
+        // sidebarPath: require.resolve('./sidebarsRegistry.js'),
+        path: 'registry',
+      },
+    ],
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        id: 'registry',
+        changefreq: 'daily',
+        filename: 'sitemap.xml',
       },
     ],
     [
